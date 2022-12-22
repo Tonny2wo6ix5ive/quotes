@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { ImageBackground, FlatList, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import * as Clipboard from 'expo-clipboard';
 import axios from "axios";
 import { AntDesign } from '@expo/vector-icons';
 
 const Home = () => {
 
-    const [quotes, setQuotes] = useState([])
+    const [quotes, setQuotes] = useState([]);
+    const [copiedText, setCopiedText] = useState('');
 
-    const bg = {uri:'./img/background.png'}
+    const copyToClipboard = async(text)=>{
+        await Clipboard.setStringAsync(text)
+    }
 
     useEffect(() => {
         async function fetchData() {
@@ -16,13 +20,17 @@ const Home = () => {
         }
         fetchData();
       }, []);
+
+
+
+
     return ( 
         <ImageBackground source={{uri: 'https://files.oyebesmartest.com/uploads/preview/joker-mobile-wallpaper-fuy0aje.webp'}}>
             <View style={styles.home}>
                 <FlatList
                     data={quotes}
                     renderItem={({item})=>(
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={()=>copyToClipboard(item.text + "\n" + item.author)}>
                             <ImageBackground>
                                 <View style={styles.container}>
                                     <Text style={styles.text}>{item.text}</Text>
@@ -48,7 +56,7 @@ const styles = StyleSheet.create({
         marginTop:15,
         backgroundColor:'white',
         opacity:0.5,
-        height:100,
+        height:120,
         marginHorizontal:20,
         borderRadius:4,
     },
@@ -59,7 +67,8 @@ const styles = StyleSheet.create({
         color:'#000000',
     },
     logo:{
-        textAlign:'right'
+        textAlign:'right',
+        padding:10,
     }
 })
 

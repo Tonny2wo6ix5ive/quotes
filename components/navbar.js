@@ -12,7 +12,7 @@ const NavBar = () => {
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:'#404144',
+        backgroundColor:'#808080',
         paddingTop:20,
         paddingBottom:10,
     },
@@ -21,6 +21,8 @@ const styles = StyleSheet.create({
         fontSize:30,
         fontWeight:'bold',
         textAlign:'center',
+        fontFamily:'sans-serif-condensed',
+        textDecorationLine:'underline line-through',
     }
 })
 

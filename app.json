@@ -4,10 +4,10 @@
     "slug": "quotes",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "https://wallpapercave.com/wp/wp7132438.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "https://files.oyebesmartest.com/uploads/preview/joker-mobile-wallpaper-fuy0aje.webp",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,10 +24,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.tonny2wo6ix5ive.quotes"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "cd032c71-1237-4663-9f15-6b3bfd210a00"
+      }
     }
   }
 }
